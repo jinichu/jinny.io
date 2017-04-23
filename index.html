@@ -11766,6 +11766,7 @@ this.fire('dom-change');
             border-radius: 10px 10px 0 0;
             display: flex;
             justify-content: flex-start;
+            flex-shrink: 0;
         }
         #menuBarName, #windowBarName {
             font-size: 16px;
@@ -11778,7 +11779,8 @@ this.fire('dom-change');
         }
         #windowText {
             text-align: left;
-            margin: 40px;
+            padding: 40px 40px 30px 40px;
+            overflow: auto;
             line-height: 1.5;
         }
         #displayPicture {
@@ -11810,6 +11812,10 @@ this.fire('dom-change');
             border-radius: 50%;
             margin-top: 10px;
             margin-left: 12px;
+        }
+        #window paper-card {
+            display: flex;
+            flex-direction: column;
         }
         paper-card {
             border-radius: 10px;
@@ -11889,7 +11895,7 @@ this.fire('dom-change');
                                 <p>Come back soon.</p>
                             </template>
                             <template is="dom-if" if="{{contact}}">
-                                <div style="text-align: center; margin-top: 190px">
+                                <div style="text-align: center; margin-top: 170px">
                                     <p><b>Email: </b><a href="mailto:jinnybyun@gmail.com">jinnybyun@gmail.com</a></p>
                                     <p><b>GitHub: </b><a href="https://github.com/jinichu">https://github.com/jinichu</a></p>
                                     <p><b>Resume: </b><a href="files/resume.pdf">https://jinny.io/resume.pdf</a></p>
