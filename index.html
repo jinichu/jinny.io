@@ -1,3 +1,300 @@
-<h1>Hi, I'm Jinny Byun!</h1>
+<head>
+    <!-- webcomponents, polymer standard, polymer-ts -->
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="bower_components/polymer/polymer.html">
+    <link rel="import" href="bower_components/paper-card/paper-card.html">
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+    <link rel="import" href="bower_components/iron-form/iron-form.html">
+    <link rel="import" href="bower_components/paper-input/paper-input.html">
+    <link rel="import" href="bower_components/paper-input/paper-textarea.html">
+    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0 0;
+            background-image: url("files/bg.jpg");
+            background-size:     cover;
+            background-repeat:   no-repeat;
+            background-position: center center;
+            font-family: 'Open Sans', sans-serif;
+            color: #4d4d4d;
+        }
+        paper-input-container textarea {
+            border: 1px solid #575757 !important;
+        }
+    </style>
+    <main-page></main-page>
+</head>
 
-<p>This site is under construction.</p>
+<dom-module id="main-page">
+    <style>
+        :host {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-y: hidden;
+        }
+        h1, h2, h3, h4 {
+            margin: 0;
+            font-family: 'Varela Round', sans-serif;
+            color: #5c5c5c;
+            font-size: 40px;
+            font-weight: 200;
+        }
+        #menu {
+            height:600px;
+            width: 330px;
+            text-align: center;
+            margin: 1em;
+            margin-right: 20px;
+        }
+        #window {
+            height:600px;
+            width: 620px;
+            text-align: center;
+            margin: 1em;
+        }
+        #container {
+            display: flex;
+            justify-content: center;
+        }
+        #tabs {
+            height: 60px;
+            /*width: 450px;*/
+        }
+        #tabs-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        #tabsBar {
+            width: 100%;
+            margin-left: 10px;
+            margin-right: 10px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100%;
+        }
+        #tabsBar > * {
+            transition: top 0.4s, transform 0.4s;
+        }
+        #tabsBar > a:hover {
+            transform: translateY(-10px) scale(1.0);
+        }
+        #menuBar, #windowBar {
+            width: 100%;
+            height: 35px;
+            background-color: #e5e5e5;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            justify-content: flex-start;
+        }
+        #menuBarName, #windowBarName {
+            font-size: 16px;
+            color: #666666;
+            width: 100%;
+            position: absolute;
+            line-height: 35px;
+            font-family: 'Open Sans', sans-serif;
+            text-align: center;
+        }
+        #windowText {
+            text-align: left;
+            margin: 40px;
+            line-height: 1.5;
+        }
+        #displayPicture {
+            height: 190px;
+            width: 190px;
+            border-radius: 50%;
+            margin: 35px auto 0 auto;
+            background-image: url('files/pic2.jpg');
+            background-size: cover;
+            background-position: center center;
+        }
+        #displayName {
+            width: 100%;
+            height: 100%;
+            font-size: 28px;
+            font-family: 'Varela Round', sans-serif;
+            color: #525252;
+        }
+        #menuItems {
+            width: 100%;
+            margin-top: 45px;
+            font-size: 18px;
+            font-family: 'Open Sans', sans-serif;
+            color: #666666;
+        }
+        #circleR1, #circleY1, #circleG1, #circleR2, #circleY2, #circleG2 {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-top: 10px;
+            margin-left: 12px;
+        }
+        paper-card {
+            border-radius: 10px;
+            width: 100%;
+            height: 100%;
+        }
+        paper-button {
+            text-transform: none;
+        }
+        paper-input {
+            width: 55%;
+        }
+        paper-textarea {
+            --paper-input-container-underline: {
+                display: none;
+            };
+            --paper-input-container-underline-focus: {
+                display: none;
+            };
+            --paper-input-container-underline-disabled: {
+                display: none;
+            };
+            font-family: 'Open Sans', sans-serif;
+        }
+        a:visited {
+            color: #838383;
+        }
+        a:link {
+            color: #838383;
+        }
+        a:hover {
+            color: #464646;
+        }
+    </style>
+    <template>
+        <div style="flex-grow: 1000; display: flex; flex-direction: column; justify-content: center;">
+            <div id="container">
+                <div id="menu">
+                    <paper-card>
+                        <div id="menuBar">
+                            <div id="circleR1" style="background: rgba(255, 0, 2, 0.73)"></div>
+                            <div id="circleY1" style="background: rgba(251,188,0,0.84)"></div>
+                            <div id="circleG1" style="background: rgba(64,203,93,0.92)"></div>
+                            <div id="menuBarName">
+                                <span><b>Menu</b></span>
+                            </div>
+                        </div>
+                        <div id="displayPicture"></div>
+                        <div id="displayName">
+                            <p>JINNY BYUN</p>
+                            <div id="menuItems">
+                                <p><paper-button on-tap="gotoAbout">About</paper-button></p>
+                                <p><paper-button on-tap="gotoBlog">Blog</paper-button></p>
+                                <p><paper-button on-tap="gotoContact">Contact</paper-button></p>
+                            </div>
+                        </div>
+                    </paper-card>
+                </div>
+                <div id="window">
+                    <paper-card>
+                        <div id="windowBar">
+                            <div id="circleR2" style="background: rgba(255, 0, 2, 0.73)"></div>
+                            <div id="circleY2" style="background: rgba(251,188,0,0.84)"></div>
+                            <div id="circleG2" style="background: rgba(64,203,93,0.92)"></div>
+                            <div id="windowBarName">
+                                <template is="dom-if" if="{{about}}">
+                                    <span><b>About</b></span>
+                                </template>
+                                <template is="dom-if" if="{{blog}}">
+                                    <span><b>Blog</b></span>
+                                </template>
+                                <template is="dom-if" if="{{contact}}">
+                                    <span><b>Contact</b></span>
+                                </template>
+                            </div>
+                        </div>
+                        <div id="windowText">
+                            <template is="dom-if" if="{{about}}">
+                                <h2>Hi, I'm Jinny.</h2>
+                                <br>
+                                <p>I'm a software engineer and a third year Computer Science major studying at the <b>University of British Columbia.</b></p>
+                                <p>Through past experiences, I realized that I really enjoy learning new things so I'm always open to trying out different kinds of projects. After all, the
+                                    best way to learn something new is to just dive in and get your hands dirty. And even though that means horribly failing sometimes,
+                                    giving it a shot in the first place is something worth smiling about.</p>
+                                <p>In my free time, you'll probably catch me either drawing, playing the guitar, or writing songs. Actually, I enjoy pretty much anything that provides a creative outlet for me.
+                                    I think programming is in the same vein; it's like an empty canvas, full of endless possibilities, just waiting for you to create anything your heart desires.</p>
+                                <p>Thanks for dropping by!</p>
+                            </template>
+                            <template is="dom-if" if="{{blog}}">
+                                <h2>No blogs yet!</h2>
+                                <br>
+                                <p>Come back soon.</p>
+                            </template>
+                            <template is="dom-if" if="{{contact}}">
+                                <div style="text-align: center; margin-top: 190px">
+                                    <p><b>Email: </b><a href="mailto:jinnybyun@gmail.com">jinnybyun@gmail.com</a></p>
+                                    <p><b>GitHub: </b><a href="https://github.com/jinichu">https://github.com/jinichu</a></p>
+                                    <p><b>Resume: </b><a href="resume.pdf">https://jinny.io/resume.pdf</a></p>
+                                    <p><b>Location: </b>Vancouver, Canada</p>
+                                </div>
+                            </template>
+                        </div>
+                    </paper-card>
+                </div>
+            </div>
+        </div>
+        <div id="tabs-container">
+            <div id="tabs">
+                <paper-card style="background-color: rgba(212,212,212,0.64)">
+                    <div id="tabsBar">
+                        <img src="files/files.png" style="width: 49px; margin-right: 17px;">
+                        <img src="files/Chrome.png" style="width: 49px; margin-right: 15px;">
+                        <a href="mailto:jinnybyun@gmail.com">
+                            <img src="files/mail.png" style="width: 49px; margin-right: 20px;">
+                        </a>
+                        <a href="https://github.com/jinichu">
+                            <img src="files/github.png" style="width: 47px; margin-right: 15px; background-color: #dddddd; border-radius: 50%">
+                        </a>
+                        <a href="resume.pdf">
+                            <img src="files/document.png" style="width: 49px; margin-right: 15px;">
+                        </a>
+                        <img src="files/terminal.png" style="width: 51px; margin-right: 15px;">
+                        <img src="files/calculator.png" style="width: 51px; margin-right: 15px;">
+                        <img src="files/new-calendar.png" style="width: 49px;">
+                    </div>
+
+                </paper-card>
+            </div>
+        </div>
+    </template>
+    <script>
+        addEventListener('WebComponentsReady', function() {
+            Polymer({
+                is: 'main-page',
+                ready: function() {
+                    this.about = true;
+                    this.name = null;
+                    this.email = null;
+                    this.text = null;
+                },
+                gotoAbout: function() {
+                    this.about = true;
+                    this.blog = false;
+                    this.contact = false;
+                },
+                gotoBlog: function() {
+                    this.about = false;
+                    this.blog = true;
+                    this.contact = false;
+                },
+                gotoContact:function() {
+                    this.about = false;
+                    this.blog = false;
+                    this.contact = true;
+                },
+            });
+        });
+    </script>
+</dom-module>

@@ -1,0 +1,22 @@
+{
+  "name": "jinny.io",
+  "homepage": "https://github.com/jinichu/jinny.io",
+  "authors": [
+    "Jinny Byun <jinnybyun@gmail.com>"
+  ],
+  "description": "Personal website",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "iron-elements": "^1.0.10",
+    "paper-elements": "^1.0.7",
+    "polymer": "^1.9.1"
+  }
+}
