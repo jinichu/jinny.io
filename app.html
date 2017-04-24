@@ -13,41 +13,8 @@
             color: #4d4d4d;
         }
     </style>
-    <script>
-        // Setup Polymer options
-        window.Polymer = {
-            dom: 'shady',
-            lazyRegister: true,
-        };
-        // Load webcomponentsjs polyfill if browser does not support native
-        // Web Components
-        (function() {
-            'use strict';
-            var onload = function() {
-                // For native Imports, manually fire WebComponentsReady so user code
-                // can use the same code path for native and polyfill'd imports.
-                if (!window.HTMLImports) {
-                    document.dispatchEvent(
-                        new CustomEvent('WebComponentsReady', {bubbles: true})
-                    );
-                }
-            };
-            var webComponentsSupported = (
-                'registerElement' in document
-                && 'import' in document.createElement('link')
-                && 'content' in document.createElement('template')
-            );
-            if (!webComponentsSupported) {
-                var script = document.createElement('script');
-                script.async = true;
-                script.src = '/bower_components/webcomponentsjs/webcomponents-lite.min.js';
-                script.onload = onload;
-                document.head.appendChild(script);
-            } else {
-                onload();
-            }
-        })();
-    </script>
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+
     <link rel="import" href="bower_components/polymer/polymer.html">
     <link rel="import" href="bower_components/paper-card/paper-card.html">
     <link rel="import" href="bower_components/paper-button/paper-button.html">
@@ -285,29 +252,31 @@
         </div>
     </template>
     <script>
-        Polymer({
-            is: 'main-page',
-            ready: function() {
-                this.about = true;
-                this.name = null;
-                this.email = null;
-                this.text = null;
-            },
-            gotoAbout: function() {
-                this.about = true;
-                this.blog = false;
-                this.contact = false;
-            },
-            gotoBlog: function() {
-                this.about = false;
-                this.blog = true;
-                this.contact = false;
-            },
-            gotoContact:function() {
-                this.about = false;
-                this.blog = false;
-                this.contact = true;
-            },
-        });
+        document.addEventListener("WebComponentsReady", function () {
+            Polymer({
+                is: 'main-page',
+                ready: function () {
+                    this.about = true;
+                    this.name = null;
+                    this.email = null;
+                    this.text = null;
+                },
+                gotoAbout: function () {
+                    this.about = true;
+                    this.blog = false;
+                    this.contact = false;
+                },
+                gotoBlog: function () {
+                    this.about = false;
+                    this.blog = true;
+                    this.contact = false;
+                },
+                gotoContact: function () {
+                    this.about = false;
+                    this.blog = false;
+                    this.contact = true;
+                },
+            })
+        })
     </script>
 </dom-module>
