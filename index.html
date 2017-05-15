@@ -11689,12 +11689,25 @@ this.fire('dom-change');
             min-height: 100vh;
             overflow-y: hidden;
         }
-        h1, h2, h3, h4 {
+        h1, h2 {
             margin: 0;
             font-family: 'Varela Round', sans-serif;
             color: #5c5c5c;
             font-size: 40px;
             font-weight: 200;
+        }
+        h3 {
+            margin: 0;
+            font-family: 'Varela Round', sans-serif;
+            color: #5c5c5c;
+            font-size: 30px;
+            font-weight: 200;
+        }
+        h4 {
+            margin: 0;
+            color: #5c5c5c;
+            font-size: 13px;
+            font-weight: 100;
         }
         #menu {
             height:600px;
@@ -11858,6 +11871,9 @@ this.fire('dom-change');
                                 <template is="dom-if" if="{{contact}}">
                                     <span><b>Contact</b></span>
                                 </template>
+                                <template is="dom-if" if="{{post1}}">
+                                    <span><b>Blog</b></span>
+                                </template>
                             </div>
                         </div>
                         <div id="windowText">
@@ -11873,9 +11889,13 @@ this.fire('dom-change');
                                 <p>Thanks for dropping by!</p>
                             </template>
                             <template is="dom-if" if="{{blog}}">
-                                <h2>No blogs yet!</h2>
+                                <h2>Recent posts</h2>
                                 <br>
-                                <p>Come back soon.</p>
+                                <ul>
+                                    <li>
+                                        <p><paper-button on-tap="gotoPost1">Many years later...</paper-button></p>
+                                    </li>
+                                </ul>
                             </template>
                             <template is="dom-if" if="{{contact}}">
                                 <div style="text-align: center; margin-top: 170px">
@@ -11884,6 +11904,22 @@ this.fire('dom-change');
                                     <p><b>Resume: </b><a href="files/resume.pdf">https://jinny.io/resume.pdf</a></p>
                                     <p><b>Location: </b>Vancouver, Canada</p>
                                 </div>
+                            </template>
+                            <template is="dom-if" if="{{post1}}">
+                                <div style="text-align: center">
+                                    <h3>Many years later...</h3>
+                                    <h4><i>Posted on May 15th 2017</i></h4>
+                                </div>
+                                <div style="text-align: left">
+                                    <p>My first attempt at a website was as a twelve year old enrolled in an HTML summer camp. My website was decorated with my two favourite colours back then: hot pink and yellow. Even though the yellow font was
+                                        hard to read against the pink background, I insisted that having a "neat" website theme (like "pink lemonade") was far more important than readability. I remember thinking how cool and tech-savvy I was, being able to go "above and beyond" by embedding Youtube videos on the website.
+                                        It was flooded with random content, from cat pictures to copious amounts of buttons pointing to all my favourite websites. Needless to say, it was a strange looking site but exactly what you'd expect from an inexperienced twelve year old.</p>
+                                    <p>Many years from that point, I decided to take another crack at writing a personal website after finding a suitable domain name. While there aren't any funny pictures of cats this time around, you can tell my insistence for a "neat" theme hasn't gone away.
+                                    </p>
+
+
+                                </div>
+
                             </template>
                         </div>
                     </paper-card>
@@ -11923,22 +11959,32 @@ this.fire('dom-change');
                     this.name = null;
                     this.email = null;
                     this.text = null;
+                    this.post1 = null;
                 },
                 gotoAbout: function () {
                     this.about = true;
                     this.blog = false;
                     this.contact = false;
+                    this.post1 = false;
                 },
                 gotoBlog: function () {
                     this.about = false;
                     this.blog = true;
                     this.contact = false;
+                    this.post1 = false;
                 },
                 gotoContact: function () {
                     this.about = false;
                     this.blog = false;
                     this.contact = true;
+                    this.post1 = false;
                 },
+                gotoPost1: function() {
+                    this.about = false;
+                    this.blog = false;
+                    this.contact = false;
+                    this.post1 = true;
+                }
             })
         })
     </script>
